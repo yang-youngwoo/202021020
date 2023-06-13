@@ -38,6 +38,7 @@ t, y = signal.step(s1)
 # 주파수 응답 계산
 w, mag, phase = s1.bode(frequencies)
 
+#그래프 
 fig1, ax1 = plt.subplots()
 t, y, _ = signal.lsim(s1, np.ones_like(t), t)
 ax1.plot(t, y)
@@ -72,13 +73,15 @@ t, y = signal.step(s1)
 # 주파수 응답 계산
 w, mag, phase = s1.bode(frequencies)
 
+#그래프 그리기
 fig2, (ax2_mag, ax2_phase) = plt.subplots(2, 1)
 ax2_mag.semilogx(w, mag)
+ax2_mag.set_xlabel('Frequency [rad/s]')
 ax2_mag.set_ylabel('Magnitude [dB]')
-ax2_mag.set_title('Bode plot of G(s) = 100 / (s^2 + 5s + 106)')
 ax2_phase.semilogx(w, phase)
 ax2_phase.set_xlabel('Frequency [rad/s]')
 ax2_phase.set_ylabel('Phase [degrees]')
+plt.subplots_adjust(hspace=0.3)
 st.pyplot(fig2)
     '''
     st.code(code2, language="python")
