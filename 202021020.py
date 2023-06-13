@@ -3,6 +3,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 
+# 애플리케이션 제목
+st.title('제어공학 202021020 양영우')
+st.header('폐루프 전달함수 L(S)')
+st.write('L(s) = 100/(s^2 + 5s + 106)')
+
 # 전달함수 정의
 s1 = signal.lti([100], [1, 5, 106])
 
@@ -15,13 +20,9 @@ t, y = signal.step(s1)
 # 주파수 응답 계산
 w, mag, phase = s1.bode(frequencies)
 
-# Streamlit 앱 구성
-st.title('202021030 진민석')
-st.subheader('<폐루프 전달함수>')
-st.write('L(s) = 100/(s^2 + 5s + 106)')
 
 # 전달함수 그래프
-st.header("Transfer Function Response")
+st.header("unit step입력 응답곡선")
 fig1, ax1 = plt.subplots()
 t, y, _ = signal.lsim(s1, np.ones_like(t), t)
 ax1.plot(t, y)
@@ -30,7 +31,7 @@ ax1.set_ylabel('Output')
 st.pyplot(fig1)
 
 # Bode Plot
-st.header("Bode Plot")
+st.header("주파수 응답 보드선")
 fig2, (ax2_mag, ax2_phase) = plt.subplots(2, 1)
 ax2_mag.semilogx(w, mag)
 ax2_mag.set_ylabel('Magnitude [dB]')
