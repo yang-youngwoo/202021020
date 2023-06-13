@@ -86,6 +86,7 @@ st.pyplot(fig2)
 #그래프 그리기
 fig2, (ax2_mag, ax2_phase) = plt.subplots(2, 1)
 ax2_mag.semilogx(w, mag)
+ax2_phase.set_xlabel('Frequency [rad/s]')
 ax2_mag.set_ylabel('Magnitude [dB]')
 ax2_phase.semilogx(w, phase)
 ax2_phase.set_xlabel('Frequency [rad/s]')
