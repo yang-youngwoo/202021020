@@ -91,4 +91,7 @@ ax2_mag.set_ylabel('Magnitude [dB]')
 ax2_phase.semilogx(w, phase)
 ax2_phase.set_xlabel('Frequency [rad/s]')
 ax2_phase.set_ylabel('Phase [degrees]')
+
+plt.subplots_adjust(hspace=0.3)
+
 st.pyplot(fig2)
