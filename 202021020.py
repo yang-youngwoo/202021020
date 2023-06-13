@@ -5,8 +5,7 @@ from scipy import signal
 
 # 애플리케이션 제목
 st.title('제어공학 202021020 양영우')
-st.header('폐루프 전달함수 L(S)')
-st.write('L(s) = 100/(s^2 + 5s + 106)')
+st.header('폐루프 전달함수 L(S)= 100/(s^2 + 5s + 106)')
 
 # 전달함수 정의
 s1 = signal.lti([100], [1, 5, 106])
